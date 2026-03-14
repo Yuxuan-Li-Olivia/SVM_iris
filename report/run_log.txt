@@ -1,0 +1,60 @@
+=== Tuning demo (baseline -> GridSearchCV) ===
+Split: test_size=0.2, random_state=42, stratify=True; CV folds=5
+
+--- Baseline model ---
+{'C': 1.0, 'break_ties': False, 'cache_size': 200, 'class_weight': None, 'coef0': 0.0, 'decision_function_shape': 'ovr', 'degree': 3, 'gamma': 'scale', 'kernel': 'rbf', 'max_iter': -1, 'probability': False, 'random_state': None, 'shrinking': True, 'tol': 0.001, 'verbose': False}
+Test Accuracy: 0.9667
+Test Macro-F1: 0.9666
+Confusion matrix (rows=true, cols=pred):
+[[10  0  0]
+ [ 0  9  1]
+ [ 0  0 10]]
+
+--- GridSearchCV (scoring=f1_macro) ---
+Best params: {'svc__C': 1, 'svc__gamma': 0.1, 'svc__kernel': 'rbf'}
+Best CV score (macro-F1): 0.9749
+
+Top 5 CV configs:
+  rank=1 mean=0.9749 std=0.0205 params={'svc__C': 1, 'svc__gamma': 0.1, 'svc__kernel': 'rbf'}
+  rank=1 mean=0.9749 std=0.0205 params={'svc__C': 10, 'svc__gamma': 0.01, 'svc__kernel': 'rbf'}
+  rank=1 mean=0.9749 std=0.0205 params={'svc__C': 0.1, 'svc__kernel': 'linear'}
+  rank=4 mean=0.9747 std=0.0338 params={'svc__C': 1, 'svc__kernel': 'linear'}
+  rank=5 mean=0.9665 std=0.0167 params={'svc__C': 10, 'svc__gamma': 'scale', 'svc__kernel': 'rbf'}
+
+--- Tuned model (best_estimator_) ---
+Test Accuracy: 0.9667
+Test Macro-F1: 0.9666
+Confusion matrix (rows=true, cols=pred):
+[[10  0  0]
+ [ 0  9  1]
+ [ 0  0 10]]
+
+=== Comparison (tuned - baseline) ===
+Δ Accuracy: +0.0000
+Δ Macro-F1: +0.0000
+
+--- Classification report (baseline) ---
+              precision    recall  f1-score   support
+
+      setosa     1.0000    1.0000    1.0000        10
+  versicolor     1.0000    0.9000    0.9474        10
+   virginica     0.9091    1.0000    0.9524        10
+
+    accuracy                         0.9667        30
+   macro avg     0.9697    0.9667    0.9666        30
+weighted avg     0.9697    0.9667    0.9666        30
+
+
+--- Classification report (tuned) ---
+              precision    recall  f1-score   support
+
+      setosa     1.0000    1.0000    1.0000        10
+  versicolor     1.0000    0.9000    0.9474        10
+   virginica     0.9091    1.0000    0.9524        10
+
+    accuracy                         0.9667        30
+   macro avg     0.9697    0.9667    0.9666        30
+weighted avg     0.9697    0.9667    0.9666        30
+
+
+[plots] Saved to: /mnt/e/HW2/report/outputs

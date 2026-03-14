@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "iris-svm-mini"
+version = "0.1.0"
+description = "SVM (sklearn.svm.SVC) on Fisher's Iris dataset"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+  "numpy",
+  "scikit-learn",
+  "pandas",
+  "matplotlib",
+]
+
+[project.scripts]
+iris-svm = "iris_svm.train:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

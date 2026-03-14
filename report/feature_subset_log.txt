@@ -1,0 +1,5 @@
+Split: test_size=0.2, random_state=42, stratify=True
+Model: StandardScaler + SVC(rbf, C=1.0, gamma=scale)
+all_4	sepal_length+sepal_width+petal_length+petal_width	accuracy=0.9667	f1_macro=0.9666
+sepal_2	sepal_length+sepal_width	accuracy=0.7333	f1_macro=0.7306
+petal_2	petal_length+petal_width	accuracy=0.9333	f1_macro=0.9333
