@@ -20,7 +20,7 @@ pip install -r requirements.txt
 ## 运行方式
 
 ```bash
-python svm_iris.py              # 默认会展示“调参过程”（baseline -> GridSearchCV -> 对比）
+python svm_iris.py              # 展示调参过程（baseline -> GridSearchCV -> 对比）
 python svm_iris.py --data data/iris.csv
 python svm_iris.py --kernel linear
 python svm_iris.py --gridsearch --topk 5
